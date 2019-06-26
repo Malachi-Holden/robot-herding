@@ -60,6 +60,8 @@ const restart = ()=>{
       }
       configuration.squares.push(row);
     }
+  configuration.counter = 0;
+  document.getElementById("counter").innerHTML = ` ${configuration.counter}`;
   setBlanks();
   loadRobots();
 }

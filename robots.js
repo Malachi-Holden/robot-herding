@@ -2,7 +2,6 @@
 const setup = ()=>{
 
   let oldConfig = getCookie("config");
-  console.log(oldConfig);
   if (oldConfig)
   {
     configuration = JSON.parse(oldConfig);
@@ -80,7 +79,6 @@ const loadRobots = ()=>{
     addRobot(robot.color,robot.number,robot.direction,robot.row,robot.column);
   });
   let save = JSON.stringify(configuration)
-  console.log("save:",save);
   setCookie("config",save,1);
 }
 
