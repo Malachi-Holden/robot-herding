@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Time Travel</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="style.css" >
+  <script type="text/javascript" src="conf.js"></script>
+  <script type="text/javascript" src="goal.js"></script>
+  <script type="text/javascript" src="robots.js" defer></script>
+  <script type="text/javascript" src="index.js" defer></script>
+</head>
+
+
+<body>
+
+  <div class="game">
+    <div id="board">
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+
+
+    </div>
+    <div class="ui">
+    <div class="consoles">
+      <div class="console">
+        <h4>Move the robots!</h4>
+        Color:<br>
+        <form id="move" method="post">
+          <input type="radio" name="color" value="red" autocomplete="off">red<br>
+          <input type="radio" name="color" value="blue" autocomplete="off">blue<br>
+          <input type="radio" name="color" value="green" autocomplete="off">green<br>
+          <input type="radio" name="color" value="yellow" autocomplete="off">yellow<br>
+          Number:<input type="number" name="number" autocomplete="off"><br>
+          Number of squares:<input type="number" name="squares" min="-4" max="4" autocomplete="off"><br>
+          <input type="reset" value="make blank">
+          <input type="submit" value="Move!">
+        </form>
+      </div>
+      <div class="console">
+        <h4>Rotate the robots!</h4>
+        Color:<br>
+        <form id="rotate" method="post">
+          <input type="radio" name="color" value="red" autocomplete="off">red<br>
+          <input type="radio" name="color" value="blue" autocomplete="off">blue<br>
+          <input type="radio" name="color" value="green" autocomplete="off">green<br>
+          <input type="radio" name="color" value="yellow" autocomplete="off">yellow<br>
+          Number:<input type="number" name="number" autocomplete="off"><br>
+          Rotation:<select autocomplete="off">
+            <option value="0">0 degrees</option>
+            <option value="90">90 degrees</option>
+            <option value="180">180 degrees</option>
+            <option value="270">270 degrees</option>
+          </select><br>
+          <input type="reset" value="make blank">
+          <input type="submit" value="Rotate!">
+        </form>
+      </div>
+    </div>
+    <div class="labels">
+      <h4> Number of actions so far:</h4>
+      <p id="counter"></p>
+    </div>
+    <h3>Your goal:</h3>
+      <div id="goal">
+        <div class="row">
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+        <div class="row">
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+        <div class="row">
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+        <div class="row">
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+        <div class="row">
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+          <div class="column"></div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
