@@ -1,17 +1,29 @@
 
 const setup = ()=>{
-  for(let i=0;i<configuration.dimensions.height;i++)
+
+  let oldConfig = getCookie("config");
+  if (oldConfig)
   {
-    let row = [];
-    for(let j=0;j<configuration.dimensions.width;j++)
-    {
-      row.push(0);
-    }
-    configuration.squares.push(row);
+    configuration = JSON.parse(oldConfig);
   }
+  else
+  {
+    configuration = JSON.parse(JSON.stringify(startConf));
+    makeGoalConf();
+  }
+  for(let i=0;i<configuration.dimensions.height;i++)
+    {
+      let row = [];
+      for(let j=0;j<configuration.dimensions.width;j++)
+      {
+        row.push(0);
+      }
+      configuration.squares.push(row);
+    }
+
   setBlanks();
   loadRobots();
-  makeGoalConf();
+  
   setGoalBlanks();
   loadGoalbots();
 
@@ -66,6 +78,8 @@ const loadRobots = ()=>{
   configuration.robots.forEach(robot=>{
     addRobot(robot.color,robot.number,robot.direction,robot.row,robot.column);
   });
+
+  setCookie("config",JSON.stringify(configuration),1);
 }
 
 const rotateRobots = (color, num, degrees)=>{
@@ -128,4 +142,29 @@ const moveRobots = (color, num, squares)=>{
   });
   setBlanks("board");
   loadRobots("board");
+}
+
+const setCookie = (cname, cvalue, exdays)=> {
+  //taken from w3schools
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+ d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+const getCookie= (cname)=> {
+  //taken from w3schools
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }

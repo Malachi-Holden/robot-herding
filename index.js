@@ -46,3 +46,16 @@ const moveCallback = e=>{
 
 document.getElementById("move").addEventListener("submit", e=>{moveCallback(e)});
 document.getElementById("rotate").addEventListener("submit", e=>{rotateCallback(e)});
+
+const restart = ()=>{
+  configuration.robots = JSON.parse(JSON.stringify(startConf.robots));
+  setBlanks();
+  loadRobots();
+}
+
+const newGoal = ()=>{
+  configuration.goal = [];
+  makeGoalConf();
+  setGoalBlanks();
+  loadGoalbots();
+}

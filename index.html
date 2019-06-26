@@ -57,9 +57,9 @@
     <div class="ui">
     <div class="consoles">
       <div class="console">
-        <h4>Move the robots!</h4>
-        Color:<br>
         <form id="move" method="post">
+          <h4>Move the robots!</h4>
+          Color:<br>
           <input type="radio" name="color" value="red" autocomplete="off">red<br>
           <input type="radio" name="color" value="blue" autocomplete="off">blue<br>
           <input type="radio" name="color" value="green" autocomplete="off">green<br>
@@ -69,11 +69,56 @@
           <input type="reset" value="make blank">
           <input type="submit" value="Move!">
         </form>
+        <div class="labels">
+          <h4> Number of actions so far:</h4>
+          <p id="counter"></p>
+        </div>
+        <h3>Your goal:</h3>
+          <div id="goal">
+            <div class="row">
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+            </div>
+            <div class="row">
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+            </div>
+            <div class="row">
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+            </div>
+            <div class="row">
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+            </div>
+            <div class="row">
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+              <div class="column"></div>
+            </div>
+
+
+          </div>
       </div>
       <div class="console">
-        <h4>Rotate the robots!</h4>
-        Color:<br>
+
         <form id="rotate" method="post">
+          <h4>Rotate the robots!</h4>
+        Color:<br>
           <input type="radio" name="color" value="red" autocomplete="off">red<br>
           <input type="radio" name="color" value="blue" autocomplete="off">blue<br>
           <input type="radio" name="color" value="green" autocomplete="off">green<br>
@@ -88,52 +133,11 @@
           <input type="reset" value="make blank">
           <input type="submit" value="Rotate!">
         </form>
+        <button onclick="restart()">Restart the game</button>
+        <button onclick="newGoal()">Reset the goal</button>
       </div>
     </div>
-    <div class="labels">
-      <h4> Number of actions so far:</h4>
-      <p id="counter"></p>
-    </div>
-    <h3>Your goal:</h3>
-      <div id="goal">
-        <div class="row">
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-        </div>
-        <div class="row">
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-        </div>
-        <div class="row">
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-        </div>
-        <div class="row">
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-        </div>
-        <div class="row">
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-          <div class="column"></div>
-        </div>
 
-
-      </div>
     </div>
   </div>
 </body>

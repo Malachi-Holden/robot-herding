@@ -1,5 +1,6 @@
-let configuration =
-{
+let configuration;
+
+let startConf = {
   robots:
   [
     {color:"red",number:1,direction:90,row:0,column:1},
