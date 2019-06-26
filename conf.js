@@ -1,6 +1,6 @@
 let configuration;
 
-let startConf = {
+const startConf = {
   robots:
   [
     {color:"red",number:1,direction:90,row:0,column:1},
@@ -24,5 +24,7 @@ let startConf = {
 
   squares:[],
 
-  goal:[]
+  goal:[],
+
+  counter:0
 }

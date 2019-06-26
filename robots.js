@@ -2,6 +2,7 @@
 const setup = ()=>{
 
   let oldConfig = getCookie("config");
+  console.log(oldConfig);
   if (oldConfig)
   {
     configuration = JSON.parse(oldConfig);
@@ -10,20 +11,20 @@ const setup = ()=>{
   {
     configuration = JSON.parse(JSON.stringify(startConf));
     makeGoalConf();
-  }
-  for(let i=0;i<configuration.dimensions.height;i++)
-    {
-      let row = [];
-      for(let j=0;j<configuration.dimensions.width;j++)
+    for(let i=0;i<configuration.dimensions.height;i++)
       {
-        row.push(0);
+        let row = [];
+        for(let j=0;j<configuration.dimensions.width;j++)
+        {
+          row.push(0);
+        }
+        configuration.squares.push(row);
       }
-      configuration.squares.push(row);
-    }
+  }
 
   setBlanks();
   loadRobots();
-  
+
   setGoalBlanks();
   loadGoalbots();
 
@@ -78,8 +79,9 @@ const loadRobots = ()=>{
   configuration.robots.forEach(robot=>{
     addRobot(robot.color,robot.number,robot.direction,robot.row,robot.column);
   });
-
-  setCookie("config",JSON.stringify(configuration),1);
+  let save = JSON.stringify(configuration)
+  console.log("save:",save);
+  setCookie("config",save,1);
 }
 
 const rotateRobots = (color, num, degrees)=>{
