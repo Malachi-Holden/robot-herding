@@ -12,6 +12,11 @@ div {
   margin:5px;
 }
 
+h1, p {
+  padding: 5px 0 0 10px;
+  margin: 0;
+}
+
 #board {
   height: 700px;
   width: 700px;
@@ -31,6 +36,7 @@ div {
 
 #goal h1{
   font-size: 15px;
+  padding: 0;
 }
 
 .consoles{

@@ -7,18 +7,9 @@ let inputs = document.getElementsByTagName('input');
 const rotateCallback = e=>{
   e.preventDefault();
   let moveForm = document.getElementById("rotate");
-  let color;
-  for (let i=0;i<4;i++)
-  {
-    let radio = moveForm.getElementsByTagName('input')[i];
-    if (radio.checked)
-    {
-      color = radio.value;
-      break;
-    }
-  }
-  let num = parseInt(moveForm.getElementsByTagName('input')[4].value,10);
-  let rotate = parseInt(moveForm.getElementsByTagName('select')[0].value, 10);
+  let color = moveForm.getElementsByTagName('select')[0].value;
+  let num = parseInt(moveForm.getElementsByTagName('select')[1].value,10);
+  let rotate = parseInt(moveForm.getElementsByTagName('select')[2].value, 10);
   configuration.counter ++;
   rotateRobots(color, num, rotate);
   document.getElementById("counter").innerHTML = ` ${configuration.counter}`;
@@ -27,18 +18,9 @@ const rotateCallback = e=>{
 const moveCallback = e=>{
   e.preventDefault();
   let moveForm = document.getElementById("move");
-  let color;
-  for (let i=0;i<4;i++)
-  {
-    let radio = moveForm.getElementsByTagName('input')[i];
-    if (radio.checked)
-    {
-      color = radio.value;
-      break;
-    }
-  }
-  let num = parseInt(moveForm.getElementsByTagName('input')[4].value,10);
-  let squares = parseInt(moveForm.getElementsByTagName('input')[5].value,10);
+  let color = moveForm.getElementsByTagName('select')[0].value;
+  let num = parseInt(moveForm.getElementsByTagName('select')[1].value,10);
+  let squares = parseInt(moveForm.getElementsByTagName('select')[2].value,10);
   configuration.counter ++;
   moveRobots(color, num, squares);
   document.getElementById("counter").innerHTML = ` ${configuration.counter}`;

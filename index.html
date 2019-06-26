@@ -13,7 +13,10 @@
 
 
 <body>
-
+  <h1>Herding Robots</h1>
+  <p>
+    Ever tried herding robots? Well, look no further.
+  </p>
   <div class="game">
     <div id="board">
       <div class="row">
@@ -59,13 +62,26 @@
       <div class="console">
         <form id="move" method="post">
           <h4>Move the robots!</h4>
-          Color:<br>
-          <input type="radio" name="color" value="red" autocomplete="off">red<br>
-          <input type="radio" name="color" value="blue" autocomplete="off">blue<br>
-          <input type="radio" name="color" value="green" autocomplete="off">green<br>
-          <input type="radio" name="color" value="yellow" autocomplete="off">yellow<br>
-          Number:<input type="number" name="number" autocomplete="off"><br>
-          Number of squares:<input type="number" name="squares" min="-4" max="4" autocomplete="off"><br>
+          Color:
+            <select autocomplete="off">
+              <option value="">no color</option>
+              <option value="red">red</option>
+              <option value="blue">blue</option>
+              <option value="green">green</option>
+              <option value="yellow">yelow</option>
+            </select><br>
+            Number:<select autocomplete="off">
+              <option value="-1">no number</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select><br>
+          Squares to move:<select autocomplete="off">
+            <option value="0">0 squares</option>
+            <option value="1">1 square</option>
+            <option value="2">2 squares</option>
+            <option value="3">3 squares</option>
+            <option value="4">4 squares</option>
+          </select><br>
           <input type="reset" value="make blank">
           <input type="submit" value="Move!">
         </form>
@@ -118,12 +134,19 @@
 
         <form id="rotate" method="post">
           <h4>Rotate the robots!</h4>
-        Color:<br>
-          <input type="radio" name="color" value="red" autocomplete="off">red<br>
-          <input type="radio" name="color" value="blue" autocomplete="off">blue<br>
-          <input type="radio" name="color" value="green" autocomplete="off">green<br>
-          <input type="radio" name="color" value="yellow" autocomplete="off">yellow<br>
-          Number:<input type="number" name="number" autocomplete="off"><br>
+        Color:
+          <select autocomplete="off">
+            <option value="">no color</option>
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+            <option value="green">green</option>
+            <option value="yellow">yelow</option>
+          </select><br>
+          Number:<select autocomplete="off">
+            <option value="-1">no number</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select><br>
           Rotation:<select autocomplete="off">
             <option value="0">0 degrees</option>
             <option value="90">90 degrees</option>
