@@ -12,9 +12,15 @@ div {
   margin:5px;
 }
 
-h1, p {
-  padding: 5px 0 0 10px;
+.instructions {
+  width: 45em;
+  margin: auto;
+}
+
+.instructions h1,.instructions p {
+  padding: 5px 0 0 0;
   margin: 0;
+  text-align: center;
 }
 
 #board {
