@@ -87,6 +87,12 @@ div {
   display: flex;
 }
 
+@media screen and (max-width: 600px) {
+  .game {
+    flex-direction: column;
+  }
+}
+
 .console {
   display: flex;
   flex-direction: column;
