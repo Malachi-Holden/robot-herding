@@ -54,3 +54,7 @@ const newGoal = ()=>{
   setGoalBlanks();
   loadGoalbots();
 }
+
+const displayScore = ()=>{
+  document.getElementById("score").innerHTML = `${getScore()}`;
+}

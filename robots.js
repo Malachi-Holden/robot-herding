@@ -27,6 +27,7 @@ const setup = ()=>{
   setGoalBlanks();
   loadGoalbots();
 
+  document.getElementById("score").innerHTML = `${getScore()}`;
 }
 
 const setBlanks = ()=>{
@@ -57,8 +58,7 @@ const addRobot = (color, num, direction, rownum, colnum)=>{
   let col = row.getElementsByClassName("column")[colnum];
   let robot = document.createElement('img');
   robot.style.width="100%";
-  robot.src = "images/" + color + ".jpg";
-  robot.style.transform = `rotate(${direction}deg)`;
+  robot.src = "images/" + color +`${direction}.jpg`;
 
   while (col.hasChildNodes()) {
       col.removeChild(col.lastChild);
@@ -75,20 +75,26 @@ const addRobot = (color, num, direction, rownum, colnum)=>{
 }
 
 const loadRobots = ()=>{
-  configuration.robots.forEach(robot=>{
+  for (let key in configuration.robots)
+  {
+    let robot = configuration.robots[key];
     addRobot(robot.color,robot.number,robot.direction,robot.row,robot.column);
-  });
+  }
+
   let save = JSON.stringify(configuration)
   setCookie("config",save);
 }
 
 const rotateRobots = (color, num, degrees)=>{
-  configuration.robots.forEach(robot=>{
+  for (let key in configuration.robots)
+  {
+    let robot = configuration.robots[key];
     if ((robot.color === color)||robot.number===num)
     {
       robot.direction=(robot.direction+degrees)%360;
     }
-  });
+  }
+
   setBlanks();
   loadRobots();
 };
@@ -128,18 +134,19 @@ const findSquareToMove = (currentrow, currentcol, direction, squares)=>{
 }
 
 const moveRobots = (color, num, squares)=>{
-  configuration.robots.forEach(robot=>{
+  for (let key in configuration.robots)
+  {
+    let robot = configuration.robots[key];
     if ((robot.color !== color)&&(robot.number!==num))
     {
-      return;
+      continue;
     }
     let locationPair = findSquareToMove(robot.row, robot.column,robot.direction,squares+1);
     configuration.squares[robot.row][robot.column]=0;
-    robot.row = locationPair[0];
-    robot.column = locationPair[1];
+    configuration.robots[key].row = locationPair[0];
+    configuration.robots[key].column = locationPair[1];
     configuration.squares[robot.row][robot.column]=1;
-
-  });
+  }
   setBlanks("board");
   loadRobots("board");
 }

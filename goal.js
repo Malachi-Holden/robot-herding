@@ -9,7 +9,9 @@ const makeGoalConf = ()=>{
     }
   }
   let squaresLeft = configuration.dimensions.height*configuration.dimensions.width;
-  configuration.robots.forEach(oldRobot=>{
+  for (let key in configuration.robots)
+  {
+    let oldRobot = configuration.robots[key]
     let randIndex = Math.floor(Math.random()*squaresLeft);
     squaresLeft--;
     let newRow = squaresLocal[randIndex][0];
@@ -24,8 +26,10 @@ const makeGoalConf = ()=>{
       row: newRow,
       column: newCol
     };
-    configuration.goal.push(newRobot);
-  });
+    configuration.goal[`${newRobot.color[0]}${newRobot.number}`]=newRobot;
+
+  }
+  console.log(configuration.goal);
 }
 
 
@@ -57,8 +61,7 @@ const addGoalbot = (color, num, direction, rownum, colnum)=>{
   let col = row.getElementsByClassName("column")[colnum];
   let robot = document.createElement('img');
   robot.style.width="100%";
-  robot.src = "images/" + color + ".jpg";
-  robot.style.transform = `rotate(${direction}deg)`;
+  robot.src = "images/" + color + `${direction}.jpg`;
 
   while (col.hasChildNodes()) {
       col.removeChild(col.lastChild);
@@ -74,7 +77,24 @@ const addGoalbot = (color, num, direction, rownum, colnum)=>{
 
 
 const loadGoalbots = ()=>{
-  configuration.goal.forEach(robot=>{
+  for (let key in configuration.goal)
+  {
+    let robot = configuration.goal[key];
     addGoalbot(robot.color,robot.number,robot.direction,robot.row,robot.column);
-  });
+  }
+}
+
+const getScore = ()=>{
+  let total = 0;
+  for (let key in configuration.robots)
+  {
+    let actualBot = configuration.robots[key];
+    let goalBot = configuration.goal[key];
+    total += botDistance(actualBot.row, actualBot.column, actualBot.direction, goalBot.row, goalBot.column, goalBot.direction);
+  }
+  return total;
+}
+
+const botDistance = (actualBotRow, actualBotColumn, actualBotDirection, goalBotRow, goalBotColumn, goalBotDirection) =>{
+  return Math.abs(actualBotRow - goalBotRow) + Math.abs(actualBotColumn - goalBotColumn) + Math.floor(Math.abs(actualBotDirection - goalBotDirection)/90);
 }

@@ -16,7 +16,7 @@
   <div class="instructions">
     <h1>Herding Robots</h1>
     <p>
-      Ever tried herding robots? Well, look no further.
+      Ever tried herding robots? Probably easier than herding cats.
     </p>
     <p>
       To rotate robots, go to the rotation panel and select a color or a number (or both!). Then, select how far you want the robots to rotate (clockwise). All robots that match this color or number will rotate.
@@ -168,6 +168,11 @@
         </form>
         <button onclick="restart()">Restart the game</button>
         <button onclick="newGoal()">Reset the goal</button>
+        <button onclick="displayScore()">Update score</button>
+        <div class="labels">
+          <h4>Your score so far (lower is better):</h4>
+          <p id="score"></p>
+        </div>
       </div>
     </div>
 

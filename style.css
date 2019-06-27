@@ -23,6 +23,7 @@ div {
   text-align: center;
 }
 
+
 #board {
   height: 700px;
   width: 700px;
@@ -108,6 +109,14 @@ h3 {
 }
 
 #counter {
+  margin: auto 10px auto 10px;
+  border-style:  solid;
+  border-width: thin;
+  text-align: center;
+  padding: 3px;
+}
+
+#score {
   margin: auto 10px auto 10px;
   border-style:  solid;
   border-width: thin;
